@@ -19,7 +19,7 @@ int* transpose_matrix(int* mtx, int m, int n);
 int i = 0;
 int main()
 {
-	printf("Whoo-hoo! Welcome to my matrix calculater¡ª¡ªMatrical!\n");
+	printf("Whoo-hoo! Welcome to my matrix calculaterÂ¡ÂªÂ¡ÂªMatrical!\n");
 	int id;
 
 	while (true)
