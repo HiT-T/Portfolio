@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 int* readSideLength();
 bool useDefaultMatrix();
@@ -11,7 +12,6 @@ int* add_matrix(int* mtx1, int* mtx2, int m, int n);
 int* subtract_matrix(int* mtx1, int* mtx2, int m, int n);
 int* scalar_multiply_matrix(int c, int* mtx, int m, int n);
 int* readFirstSideLength();
-int* readFirstSideLength();
 int vector_multiply(int* mtx1, int i, int* mtx2, int m2, int j, int n);
 int* matrix_multiply_matrix(int* mtx1, int* mtx2, int m1, int n, int m2);
 int* transpose_matrix(int* mtx, int m, int n);
@@ -19,12 +19,12 @@ int* transpose_matrix(int* mtx, int m, int n);
 int i = 0;
 int main()
 {
-	printf("Whoo-hoo! Welcome to my matrix calculater¡ª¡ªMatrical!\n");
+	printf("Whoo-hoo! Welcome to my matrix calculater——Matrical!\n");
 	int id;
 
 	while (true)
 	{
-		id = NULL;
+		id = 0;
 		printf("Among the following matrix operations, choose the one that u want to play with!!!\n");
 		printf("(1) addition; (2) subtraction; (3) scalar multiplication; (4) matrix multiplication; (5) transpose; (0) quit Matrical.\n");
 		printf("Now show me your choice bro (1/2/3/4/5/0): ");
@@ -174,7 +174,7 @@ int main()
 
 int* readSideLength()
 {
-	int mn[2] = { 0 };
+	int* mn = (int*)malloc(2 * sizeof(int));
 	printf("Now my dear, enter the side length m and n of your matrix (note m and n are less than 100): ");
 	scanf_s("%d %d", &mn[0], &mn[1] );
 	return mn;
@@ -183,13 +183,10 @@ int* readSideLength()
 bool useDefaultMatrix()
 {
 	getchar();
-	char ifd = NULL;
+	char ifd = '0';
 	printf("Would u use my default matrix or not? (y/n): ");
 	scanf_s("%c", &ifd, 1);
-	if (tolower(ifd) == 'y')
-		return true;	
-	else if (tolower(ifd) == 'n')
-		return false;
+	return (tolower(ifd) == 'y');
 }
 
 void createDefaultMatrix(int* default_mtx, int m, int n)
