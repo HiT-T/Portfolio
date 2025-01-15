@@ -1,4 +1,3 @@
-# Li Yuhan (Ewan Li) 
 .data
 	debug: .word 0
  	welcBod  : .asciiz "\n===============================\nWelcome to Wordle, let's play!\n==============================="
